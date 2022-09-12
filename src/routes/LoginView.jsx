@@ -63,7 +63,7 @@ export const LoginView = () => {
   }
 
   function handleUserLoggedIn(user){
-    navigate('/dasboard')
+    navigate('/dashboard')
   }
 
   function handleUsernotRegistered(user){
