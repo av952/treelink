@@ -22,3 +22,12 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app)
 const db  = getFirestore(app)
 const storage = getStorage(app)
+
+export async function userExists(uid){
+  const docRes = doc(db,'users',uid)
+  const res = await getDoc(docRes)
+
+  console.log(22,res.exists());
+
+  return res.exists()
+}
