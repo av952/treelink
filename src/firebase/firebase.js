@@ -104,7 +104,7 @@ export async function getLinks(uid){
 
     querySnapshot.forEach(el=>{
       const link = {...el.data()}
-      link.uid = el.id
+      link.docId = el.id
       links.push(link)
     })
 
@@ -112,5 +112,26 @@ export async function getLinks(uid){
 
   } catch (error) {
     console.log(error);
+  }
+}
+
+export async function updateLink(docId,link){
+  try {
+    const docRef = doc(db,'links',docId)
+    const res = await setDoc(docRef,link)
+    return res
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export async function deleteLink(docId){
+  try {
+    const docRef = doc(db,'links',docId)
+    const res = await deleteDoc(docRef)
+
+    return res
+  } catch (error) {
+    console.error(error)
   }
 }
