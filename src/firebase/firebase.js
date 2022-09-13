@@ -62,7 +62,6 @@ export async function registerNewUser(user){
 
 export async function updateUser(user){
   
-  console.log("🚀 ~ file: firebase.js ~ line 64 ~ updateUser ~ user", user)
   try {
     const collectionRef = collection(db,'users')
     const docRef = doc(collectionRef,user.uid)
@@ -144,5 +143,19 @@ export async function setUserProfilePhoto(uid,file){
     return resUpload
   } catch (error) {
     console.error('upload file',error)
+  }
+}
+
+/**
+ * Obtener la url para poder cargar el documento
+ */
+
+export async function getProfilePhotoUrl(profilepicture){
+  try {
+    const imageRef = ref(storage,profilepicture)
+    const url = await getDownloadURL(imageRef)
+    return url
+  } catch (error) {
+      console.error(error)
   }
 }

@@ -3,7 +3,7 @@ import AuthProvider from "../components/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import { async } from "@firebase/util";
-import { setUserProfilePhoto } from "../firebase/firebase";
+import { getProfilePhotoUrl, setUserProfilePhoto, updateUser } from "../firebase/firebase";
 
 export const EditProfileView = () => {
   const [currentuser, setcurrentUser] = useState({});
@@ -41,7 +41,15 @@ function handleChangeFile(e){
       fileReader.onload = async function(){
         const imageData  = fileReader.result
         const res = await setUserProfilePhoto(currentuser.uid,imageData)
-        console.log('img',res);
+        if(res){
+          const tempUser = {...currentuser}
+          tempUser.profilepicture = res.metadata.fullPath
+          await updateUser(tempUser)
+          setcurrentUser({...tempUser})
+
+          const url = await getProfilePhotoUrl(currentuser.profilepicture)
+          setprofileUrl(url)
+        }
       }
   }
 }
