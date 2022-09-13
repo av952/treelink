@@ -12,9 +12,11 @@ export const EditProfileView = () => {
   const navigate = useNavigate();
   const fileref = useRef()
 
-  function handleUserLoggedIn(user){
+  async function handleUserLoggedIn(user){
     setcurrentUser(user)
     setState(2)
+    const url = await getProfilePhotoUrl(user.profilePicture)
+    setprofileUrl(url)
 
 }
 
@@ -43,11 +45,11 @@ function handleChangeFile(e){
         const res = await setUserProfilePhoto(currentuser.uid,imageData)
         if(res){
           const tempUser = {...currentuser}
-          tempUser.profilepicture = res.metadata.fullPath
+          tempUser.profilePicture = res.metadata.fullPath
           await updateUser(tempUser)
           setcurrentUser({...tempUser})
 
-          const url = await getProfilePhotoUrl(currentuser.profilepicture)
+          const url = await getProfilePhotoUrl(currentuser.profilePicture)
           setprofileUrl(url)
         }
       }
