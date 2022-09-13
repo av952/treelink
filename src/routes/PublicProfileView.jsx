@@ -16,9 +16,11 @@ export const PublicProfileView = () => {
       
       try {
         const userUid = await existUserName(username)
+        console.log("🚀 ~ file: PublicProfileView.jsx ~ line 19 ~ getProfile ~ userUid", userUid)
 
         if(userUid){
           const userInfo  = await getUserProfileInfo(userUid)
+          console.log("🚀 ~ file: PublicProfileView.jsx ~ line 22 ~ getProfile ~ userInfo", userInfo)
           setProfile(userInfo)
 
           const url = await getProfilePhotoUrl( userInfo.profileInfo.profilePicture)
@@ -38,7 +40,7 @@ export const PublicProfileView = () => {
       <div>
         <img src={url}></img>
       </div>
-      <h2>{profile.profileInfo.userName}</h2>
+      <h2>{profile.profileInfo.username}</h2>
       <h3></h3>
       <div>
 

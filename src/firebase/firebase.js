@@ -33,17 +33,14 @@ export async function userExists(uid){
 }
 
 export async function existUserName(username){
-  console.log("🚀 ~ file: firebase.js ~ line 36 ~ existUserName ~ username", username)
   const users =[]
   const docsRef = collection(db,'users')
   const q  = query(docsRef,where('username','==',username))
   const querySnapshot = await getDocs(q)
-  console.log("🚀 ~ file: firebase.js ~ line 41 ~ existUserName ~ querySnapshot", querySnapshot)
 
   querySnapshot.forEach(el=>{
-    return users.push(el.data)
+    return users.push(el.data())
   })
-  console.log(888888,users);
   return users.length > 0 ? users[0].uid : null
 
 
