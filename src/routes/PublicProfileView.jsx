@@ -33,14 +33,14 @@ export const PublicProfileView = () => {
       }
     }
 
-  },[])
+  },[setProfile])
 
   return (
     <div>
       <div>
         <img src={url}></img>
       </div>
-      <h2>{profile.profileInfo.username}</h2>
+      <h2>{ profile != null ? profile.profileInfo.username: 'loading...'}</h2>
       <h3></h3>
       <div>
 
