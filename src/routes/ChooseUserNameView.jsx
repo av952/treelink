@@ -14,7 +14,8 @@ export const ChooseUserNameView = () => {
     navigate('/dashboard')
   }
 
-  function handleUsernotRegistered(user){
+  function handleUserisnotRegistered(user){
+    console.log('handle user not registered');
     setState(3)
     setcurrentUser(user)
   }
@@ -63,7 +64,7 @@ export const ChooseUserNameView = () => {
   return (
     <AuthProvider
       onUserloggedIn={handleUserLoggedIn}
-      onUsernotRegistered={handleUsernotRegistered}
+      onUserisnotRegistered={handleUserisnotRegistered}
       onUsernotLogIn={handleUsernotLogIn}
     ></AuthProvider>
   );

@@ -36,11 +36,11 @@ export const LoginView = () => {
   }
 
   function handleUserLoggedIn(user){
-    navigate('/dashboard')
+      navigate('/dashboard')
   }
 
-  function handleUsernotRegistered(user){
-    
+  function handleUserisnotRegistered(user){
+    console.log('aaaaaaaaaaaa');
     navigate('/choose-username')
   }
   function handleUsernotLogIn(){
@@ -58,7 +58,7 @@ export const LoginView = () => {
   return (
     <AuthProvider
       onUserloggedIn={handleUserLoggedIn}
-      onUsernotRegistered={handleUsernotRegistered}
+      onUserisnotRegistered={handleUserisnotRegistered}
       onUsernotLogIn={handleUsernotLogIn}>
         <div>Loading...</div>
     </AuthProvider>
