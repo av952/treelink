@@ -146,3 +146,15 @@ export async function setUserProfilePhoto(uid,file){
     console.error('upload file',error)
   }
 }
+
+
+export async function getProfilePhotoUrl(profilepicture){
+  console.log("🚀 ~ file: firebase.js ~ line 152 ~ getProfilePhotoUrl ~ profilepicture", profilepicture)
+  try {
+    const imageRef = ref(storage,profilepicture)
+    const url  = await getDownloadURL(imageRef)
+    return url
+  } catch (error) {
+    console.error(error)
+  }
+}
