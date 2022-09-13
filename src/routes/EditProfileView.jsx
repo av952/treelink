@@ -1,7 +1,9 @@
-import React from 'react'
+import { DashboardWraper } from '../components/DashboardWraper'
 
 export const EditProfileView = () => {
   return (
-    <div>EditProfileView</div>
+    <DashboardWraper>
+      <div>Edit profile view</div>
+    </DashboardWraper>
   )
 }

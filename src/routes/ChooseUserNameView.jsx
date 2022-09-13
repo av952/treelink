@@ -15,7 +15,6 @@ export const ChooseUserNameView = () => {
   }
 
   function handleUserisnotRegistered(user){
-    console.log('handle user not registered');
     setState(3)
     setcurrentUser(user)
   }
