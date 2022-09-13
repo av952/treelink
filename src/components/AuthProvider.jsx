@@ -4,7 +4,7 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { auth, userExists } from "../firebase/firebase";
+import { auth, registerNewUser, userExists } from "../firebase/firebase";
 //con nagigate es posible redireccionar a una página
 import { useNavigate } from "react-router-dom";
 export default function AuthProvider({
@@ -18,6 +18,10 @@ export default function AuthProvider({
   useEffect(() => {
     onAuthStateChanged(auth, handleUserStateChange);
   }, [navigate, onUserloggedIn, onUsernotLogIn, onUsernotRegistered]);
+
+  /**
+   * 
+   */
   async function handleUserStateChange(user) {
     if (user) {
       const isRegister = await userExists(user.uid);
@@ -25,8 +29,16 @@ export default function AuthProvider({
         //redirigir a dashboard
         onUserloggedIn(user);
       } else {
-        //redirigir a chooseUsername
+
+        await registerNewUser({
+          uid: user.uid,
+          displayName: user.displayName,
+          profilePicture: '',
+          username: '',
+          processCompleted: false
+        })
         onUsernotRegistered(user);
+        //redirigir a chooseUsername
       }
     } else {
       onUsernotLogIn();
