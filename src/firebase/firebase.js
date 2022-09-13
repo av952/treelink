@@ -61,13 +61,15 @@ export async function registerNewUser(user){
 }
 
 export async function updateUser(user){
+  
+  console.log("🚀 ~ file: firebase.js ~ line 64 ~ updateUser ~ user", user)
   try {
     const collectionRef = collection(db,'users')
     const docRef = doc(collectionRef,user.uid)
     await setDoc(docRef,user)
 
   } catch (error) {
-    
+    console.error('up',error)
   }
 }
 
@@ -76,8 +78,9 @@ export async function getUserInfo(uid){
   try {
     const docRef = doc(db,'users',uid)
     const document = await getDoc(docRef)
-    return document.data
+   
+    return document.data()
   } catch (error) {
-    
+    console.error(error)
   }
 }

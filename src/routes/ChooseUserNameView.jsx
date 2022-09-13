@@ -35,10 +35,12 @@ export const ChooseUserNameView = () => {
       if(exist){
         setState(5)
       }else{
+        console.log('creando nombre de usuario');
         const temp ={...currentuser}
         temp.username = username
         temp.processCompleted = true
         await updateUser(temp)
+        console.log("🚀 ~ file: ChooseUserNameView.jsx ~ line 43 ~ hanldeContinue ~ temp", temp)
 
       }
     }

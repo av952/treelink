@@ -30,11 +30,13 @@ export default function AuthProvider({
       const isRegister = await userExists(user.uid);
       if (isRegister) {
         const userInfo = await getUserInfo(user.uid)
+        console.log("🚀 ~ file: AuthProvider.jsx ~ line 33 ~ handleUserStateChange ~ userInfo", userInfo)
+        
         if(userInfo.processCompleted){
           console.log('registrado');
-          onUserloggedIn(user);
+          onUserloggedIn(userInfo);
         }else{
-          onUserisnotRegistered(user);
+          onUserisnotRegistered(userInfo);
 
         }
         //redirigir a dashboard
