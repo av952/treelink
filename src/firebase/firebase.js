@@ -172,3 +172,12 @@ export async function getUserProfileInfo(uid){
 
 
 }
+
+
+/**
+ * LOg out
+ */
+
+export async function logOut(){
+  await auth.signOut()
+}

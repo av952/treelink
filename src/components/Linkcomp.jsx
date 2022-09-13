@@ -1,4 +1,5 @@
 import { useState } from "react";
+import style from '../routes/css/link.module.css'
 
 export const Linkcomp = ({ docId, title, url, onDelete, onuPdate }) => {
   console.log("🚀 ~ file: Linkcomp.jsx ~ line 4 ~ Linkcomp ~ docId", docId)
@@ -41,9 +42,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onuPdate }) => {
   }
 
   return (
-    <div key={docId}>
-      <div>
-        <div>
+    <div className={style.link}>
+      <div className={style.linkInfo}>
+        <div className={style.linkTitle}>
           <div>
             {editTitle ? (
               <>
@@ -57,7 +58,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onuPdate }) => {
               </>
             ) : (
               <>
-                <button onClick={hanldeEditTitle}>edit</button>
+                <button className={style.btnEdit} onClick={hanldeEditTitle}>
+                  <span className="material-icons">edit</span>
+                </button>
                 {currentTitle}
               </>
             )}
@@ -77,7 +80,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onuPdate }) => {
               </>
             ) : (
               <>
-                <button onClick={hanldeEditUrl}>edit</button>
+                <button className={style.btnEdit} onClick={hanldeEditUrl}>
+                <span className="material-icons">edit</span>
+                </button>
                 {currentUrl}
               </>
             )}
@@ -86,7 +91,9 @@ export const Linkcomp = ({ docId, title, url, onDelete, onuPdate }) => {
       </div>
 
       <div>
-        <button onClick={handleDelete}>Delete</button>
+        <button className={style.btnDelete} onClick={handleDelete}>
+          <span className="material-icons">delete</span>
+        </button>
       </div>
     </div>
   );

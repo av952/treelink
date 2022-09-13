@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import AuthProvider from "../components/AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 import { existUserName, updateUser } from "../firebase/firebase";
+import style from './css/chooseusername.module.css'
 
 
 export const ChooseUserNameView = () => {
@@ -47,23 +48,23 @@ export const ChooseUserNameView = () => {
 
   if(state== 3 || state == 5){
     return(
-      <div>
+      <div className={style.chooseusernamecontainer}>
           <h1>Bienvenido {currentuser.displayName}</h1>
-          <p>Para terminar el proceso por facor elige un nombre de usuario</p>
+          <p>Para terminar el proceso por favor elige un nombre de usuario</p>
 
           <div>
-            <input type="text" onChange={handleInputUserName}/>
+            <input className='input' autoFocus type="text" onChange={handleInputUserName}/>
           </div>
 
           <div>
-            <button onClick={hanldeContinue}>Continue</button>
+            <button className="btn" onClick={hanldeContinue}>Continue</button>
           </div>
       </div>
     )
   }
 
   if(state == 6){
-    return <div>
+    return <div className={style.chooseusernamecontainer}>
       <h1>Felicidades, ya puedes ir al dashboard a crear tus links</h1>
       <Link to='/dashboard'>Continuar</Link>
     </div>

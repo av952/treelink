@@ -9,6 +9,8 @@ import { auth, userExists } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import AuthProvider from "../components/AuthProvider";
 
+import style from './css/loginview.module.css'
+
 export const LoginView = () => {
   const navigate = useNavigate()
   const [state, setCurrentState] = useState(0);
@@ -20,6 +22,7 @@ export const LoginView = () => {
   4:no hay nadie logueado
   5: ya existe el user name
   6: Nuevo user name click para continuar
+  7: username no existe
   */
 
   async function handleClick() {
@@ -50,8 +53,11 @@ export const LoginView = () => {
 
   if(state==4){
   return (
-    <div>
-      <button onClick={handleClick}>Login with google</button>
+    <div className={style.loginView}>
+      <div>
+        <h1>Treelink</h1>
+      </div>
+      <button className={style.provider} onClick={handleClick}>Login with google</button>
     </div>
   )
   }

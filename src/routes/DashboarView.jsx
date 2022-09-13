@@ -5,6 +5,8 @@ import { DashboardWraper } from "../components/DashboardWraper";
 import { v4 as uuidv4 } from "uuid";
 import { deleteLink, getLinks, inserNewLink, updateLink } from "../firebase/firebase";
 import { Linkcomp } from "../components/Linkcomp";
+import style from './css/dashboar.module.css'
+import styleLink from './css/link.module.css'
 
 export const DashboarView = () => {
   const navigate = useNavigate();
@@ -94,17 +96,17 @@ export const DashboarView = () => {
       <div>
         <h1>Dashboard</h1>
 
-        <form action="" onSubmit={handleOnSubmit}>
+        <form className={style.entryContainer} action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" onChange={handleOnChange} />
+          <input className="input" type="text" name="title" onChange={handleOnChange} />
 
           <label htmlFor="url">Url</label>
-          <input type="text" name="url" onChange={handleOnChange} />
+          <input className="input" type="text" name="url" onChange={handleOnChange} />
 
-          <input type="submit" value="Create new Link" />
+          <input className="btn" type="submit" value="Create new Link" />
         </form>
 
-        <div>
+        <div className={styleLink.linksContainer}>
           {links.map((el) => {
             return (
               <Linkcomp

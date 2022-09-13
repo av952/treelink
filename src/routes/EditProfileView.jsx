@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import { async } from "@firebase/util";
 import { getProfilePhotoUrl, setUserProfilePhoto, updateUser } from "../firebase/firebase";
 
+import style from './css/profileview.module.css'
+
 export const EditProfileView = () => {
   const [currentuser, setcurrentUser] = useState({});
   const [state, setState] = useState(0);
@@ -71,13 +73,13 @@ if(state != 2){
       <DashboardWraper>
         <div>
           <h2>Edit profile info</h2>
-          <div>
-            <div>
+          <div className={style.profileContainer}>
+            <div className={style.profilePicture}>
               <img src={profileUrl} alt=""  width={100}/>
             </div>
             <div>
-              <button onClick={hanldeOpenFilePicker}>Choose picture</button>
-              <input ref={fileref} type="file"style={{display:'none'}} onChange={handleChangeFile} />
+              <button className="btn" onClick={hanldeOpenFilePicker}>Choose picture</button>
+              <input className={style.fileInput} ref={fileref} type="file" onChange={handleChangeFile} />
             </div>
           </div>
         </div>
