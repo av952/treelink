@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AuthProvider from "../components/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { existUserName, updateUser } from "../firebase/firebase";
 
 
@@ -40,13 +40,13 @@ export const ChooseUserNameView = () => {
         temp.username = username
         temp.processCompleted = true
         await updateUser(temp)
-        console.log("🚀 ~ file: ChooseUserNameView.jsx ~ line 43 ~ hanldeContinue ~ temp", temp)
+        setState(6)
 
       }
     }
   }
 
-  if(state== 3){
+  if(state== 3 || state == 5){
     return(
       <div>
           <h1>Bienvenido {currentuser.displayName}</h1>
@@ -61,6 +61,13 @@ export const ChooseUserNameView = () => {
           </div>
       </div>
     )
+  }
+
+  if(state == 6){
+    return <div>
+      <h1>Felicidades, ya puedes ir al dashboard a crear tus links</h1>
+      <Link to='/dashboard'>Continuar</Link>
+    </div>
   }
 
   return (

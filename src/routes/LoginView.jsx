@@ -19,6 +19,7 @@ export const LoginView = () => {
   3:login pero sin registro
   4:no hay nadie logueado
   5: ya existe el user name
+  6: Nuevo user name click para continuar
   */
 
   async function handleClick() {
