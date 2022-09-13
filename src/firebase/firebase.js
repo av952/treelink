@@ -135,3 +135,14 @@ export async function deleteLink(docId){
     console.error(error)
   }
 }
+
+export async function setUserProfilePhoto(uid,file){
+
+  try {
+    const imageRef = ref(storage,`images/${uid}`)
+    const resUpload = await uploadBytes(imageRef,file)
+    return resUpload
+  } catch (error) {
+    console.error('upload file',error)
+  }
+}
