@@ -23,10 +23,17 @@ export const EditProfileView = () => {
 }
 
 function handleUserisnotRegistered(user){
+<<<<<<< HEAD
   navigate('/treelink/login')
 }
 function handleUsernotLogIn(){
   navigate('/treelink/login')
+=======
+  navigate('treelink/login')
+}
+function handleUsernotLogIn(){
+  navigate('treelink/login')
+>>>>>>> 4a73bfe38c3752277c19d936e003bd4658f2928f
 }
 
 function hanldeOpenFilePicker(){
