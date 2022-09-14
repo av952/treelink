@@ -14,12 +14,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
       <Route path='/treelink' element={<App/>}/>
-      <Route path='login' element={<LoginView/>}/>
-      <Route path='dashboard' element={<DashboarView/>}/>
-      <Route path='dashboard/profile' element={<EditProfileView/>}/>
-      <Route path='singout' element={<SingOutView/>}/>
-      <Route path='u/:username' element={<PublicProfileView/>}/>
-      <Route path='choose-username' element={<ChooseUserNameView/>}/>
+      <Route path='/treelink/login' element={<LoginView/>}/>
+      <Route path='/treelink/dashboard' element={<DashboarView/>}/>
+      <Route path='/treelink/dashboard/profile' element={<EditProfileView/>}/>
+      <Route path='/treelink/singout' element={<SingOutView/>}/>
+      <Route path='/treelink/u/:username' element={<PublicProfileView/>}/>
+      <Route path='/treelink/choose-username' element={<ChooseUserNameView/>}/>
     </Routes>
   </BrowserRouter>
 )
