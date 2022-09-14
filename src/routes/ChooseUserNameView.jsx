@@ -12,7 +12,7 @@ export const ChooseUserNameView = () => {
   const [username,setUserName]= useState('')
 
   function handleUserLoggedIn(user){
-    navigate('/dashboard')
+    navigate('treelink/dashboard')
   }
 
   function handleUserisnotRegistered(user){
@@ -20,7 +20,7 @@ export const ChooseUserNameView = () => {
     setcurrentUser(user)
   }
   function handleUsernotLogIn(){
-    navigate('/login')
+    navigate('treelink/login')
   }
 
   function handleInputUserName(e){
@@ -66,7 +66,7 @@ export const ChooseUserNameView = () => {
   if(state == 6){
     return <div className={style.chooseusernamecontainer}>
       <h1>Felicidades, ya puedes ir al dashboard a crear tus links</h1>
-      <Link to='/dashboard'>Continuar</Link>
+      <Link to='treelink/dashboard'>Continuar</Link>
     </div>
   }
 

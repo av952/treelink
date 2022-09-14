@@ -40,11 +40,11 @@ export const LoginView = () => {
   }
 
   function handleUserLoggedIn(user){
-      navigate('/dashboard')
+      navigate('treelink/dashboard')
   }
 
   function handleUserisnotRegistered(user){
-    navigate('/choose-username')
+    navigate('treelink/choose-username')
   }
   function handleUsernotLogIn(){
     setCurrentState(4)
