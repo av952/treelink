@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       {import.meta.env.VITE_SALUDO}
       <h1 className='logo'>Welcome To TreeLink</h1>
-      <Link className='link' to='/login'>Login</Link>
+      <Link className='link' to='/treelink/login'>Login</Link>
     </div>
   )
 }
