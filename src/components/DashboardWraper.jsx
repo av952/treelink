@@ -6,9 +6,9 @@ export const DashboardWraper = ({children,currentuser}) => {
     <div>
         <nav className={style.nav}>
             <div className={style.logo}>TreeLink</div>
-            <Link to='/dashboard'>Links</Link>
-            <Link to='/dashboard/profile'>Profile</Link>
-            <Link to='/singout'>Singout</Link>
+            <Link to='/treelink/dashboard'>Links</Link>
+            <Link to='/treelink/dashboard/profile'>Profile</Link>
+            <Link to='/treelink/singout'>Singout</Link>
             <Link to={`/u/${currentuser}`} >Public profile</Link>
         </nav>
 

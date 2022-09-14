@@ -12,7 +12,7 @@ export const ChooseUserNameView = () => {
   const [username,setUserName]= useState('')
 
   function handleUserLoggedIn(user){
-    navigate('/dashboard')
+    navigate('/treelink/dashboard')
   }
 
   function handleUserisnotRegistered(user){
@@ -20,7 +20,7 @@ export const ChooseUserNameView = () => {
     setcurrentUser(user)
   }
   function handleUsernotLogIn(){
-    navigate('/login')
+    navigate('/treelink/login')
   }
 
   function handleInputUserName(e){
