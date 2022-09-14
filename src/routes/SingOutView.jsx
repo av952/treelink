@@ -12,10 +12,10 @@ export const SingOutView = () => {
   }
 
   function handleUserisnotRegistered(user){
-    navigate('treelink/login')
+    navigate('/treelink/login')
   }
   function handleUsernotLogIn(){
-    navigate('treelink/login')
+    navigate('/treelink/login')
   }
 
   function handleInputUserName(e){
