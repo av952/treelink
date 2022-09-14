@@ -13,7 +13,7 @@ import {ChooseUserNameView} from './routes/ChooseUserNameView'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
     <Routes>
-      <Route path='/treelink' element={<App/>}/>
+      <Route path='/' element={<App/>}/>
       <Route path='login' element={<LoginView/>}/>
       <Route path='dashboard' element={<DashboarView/>}/>
       <Route path='dashboard/profile' element={<EditProfileView/>}/>
