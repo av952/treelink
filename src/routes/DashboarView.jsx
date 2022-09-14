@@ -26,10 +26,10 @@ export const DashboarView = () => {
   
 
   function handleUserisnotRegistered(user) {
-    navigate("/login");
+    navigate("/treelink/login");
   }
   function handleUsernotLogIn() {
-    navigate("/login");
+    navigate("/treelink/login");
   }
 
   if (state == 0) {
