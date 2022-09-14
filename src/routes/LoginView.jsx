@@ -44,7 +44,6 @@ export const LoginView = () => {
   }
 
   function handleUserisnotRegistered(user){
-    console.log('aaaaaaaaaaaa');
     navigate('/choose-username')
   }
   function handleUsernotLogIn(){
