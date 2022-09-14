@@ -20,8 +20,11 @@ export const DashboarView = () => {
     setcurrentUser(user);
     setState(2);
     const resLinks = await getLinks(user.uid);
+    console.log("🚀 ~ file: DashboarView.jsx ~ line 24 ~ handleUserLoggedIn ~ resLinks", resLinks)
     setlinks([...resLinks]);
   }
+  console.log("🚀 ~ file: DashboarView.jsx ~ line 25 ~ handleUserLoggedIn ~ links", links)
+  
 
   function handleUserisnotRegistered(user) {
     navigate("/login");
@@ -47,7 +50,7 @@ export const DashboarView = () => {
     addLink();
   }
 
-  function addLink() {
+  async function addLink() {
     if (title != "" && url != "") {
       const newLink = {
         id: uuidv4(),
@@ -61,6 +64,7 @@ export const DashboarView = () => {
       setTitle("");
       setUrl("");
       setlinks([...links, newLink]);
+
     }
   }
 
@@ -92,7 +96,7 @@ export const DashboarView = () => {
   }
 
   return (
-    <DashboardWraper>
+    <DashboardWraper currentuser={currentuser.username}>
       <div>
         <h1>Dashboard</h1>
 
@@ -108,9 +112,10 @@ export const DashboarView = () => {
 
         <div className={styleLink.linksContainer}>
           {links.map((el) => {
+            console.log(1,el.docId);
             return (
               <Linkcomp
-                key={el.docId}
+                key={el.id}
                 docId={el.docId}
                 url={el.url}
                 title={el.title}
