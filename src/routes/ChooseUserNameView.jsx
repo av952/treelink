@@ -66,7 +66,7 @@ export const ChooseUserNameView = () => {
   if(state == 6){
     return <div className={style.chooseusernamecontainer}>
       <h1>Felicidades, ya puedes ir al dashboard a crear tus links</h1>
-      <Link to='treelink/dashboard'>Continuar</Link>
+      <Link to='/treelink/dashboard'>Continuar</Link>
     </div>
   }
 
