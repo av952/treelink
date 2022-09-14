@@ -20,7 +20,6 @@ export const DashboarView = () => {
     setcurrentUser(user);
     setState(2);
     const resLinks = await getLinks(user.uid);
-    console.log("🚀 ~ file: DashboarView.jsx ~ line 24 ~ handleUserLoggedIn ~ resLinks", resLinks)
     setlinks([...resLinks]);
   }
   console.log("🚀 ~ file: DashboarView.jsx ~ line 25 ~ handleUserLoggedIn ~ links", links)
@@ -59,11 +58,11 @@ export const DashboarView = () => {
         uid: currentuser.uid,
       };
 
-      const res = inserNewLink(newLink);
+      const res = await inserNewLink(newLink);
       newLink.docId = res.id;
+      setlinks([...links, newLink]);
       setTitle("");
       setUrl("");
-      setlinks([...links, newLink]);
 
     }
   }
@@ -102,10 +101,10 @@ export const DashboarView = () => {
 
         <form className={style.entryContainer} action="" onSubmit={handleOnSubmit}>
           <label htmlFor="title">Title</label>
-          <input className="input" type="text" name="title" onChange={handleOnChange} />
+          <input className="input" type="text" name="title" value={title || ''} onChange={handleOnChange} />
 
           <label htmlFor="url">Url</label>
-          <input className="input" type="text" name="url" onChange={handleOnChange} />
+          <input className="input" type="text" name="url" value={url || ''} onChange={handleOnChange} />
 
           <input className="btn" type="submit" value="Create new Link" />
         </form>
@@ -115,7 +114,7 @@ export const DashboarView = () => {
             console.log(1,el.docId);
             return (
               <Linkcomp
-                key={el.id}
+                key={el.docId}
                 docId={el.docId}
                 url={el.url}
                 title={el.title}
